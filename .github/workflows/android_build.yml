@@ -2,7 +2,7 @@ name: Deploy App CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "master" ]
 
 jobs:
   build:
@@ -33,7 +33,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         name: upload build output
         with:
-         name: debug
+         name: debug.apk
          path: ${{ github.workspace }}/app/build/outputs/apk/release
 
      
