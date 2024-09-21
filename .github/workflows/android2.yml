@@ -26,7 +26,6 @@ jobs:
       run: ./gradlew build
 
     - uses: actions/upload-artifact@v2
-        name: chat-debug.apk
         with:
          name: chat-debug.apk
          path: ${{ github.workspace }}/app/build/outputs/apk/release
