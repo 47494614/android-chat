@@ -29,22 +29,11 @@ jobs:
         id: buildRelease
         run: ./gradlew assembleRelease
 
-      //添加这个打包好的APK可以进行本地下载
+     
       - uses: actions/upload-artifact@v2
         name: upload build output
         with:
-         name: 下载的压缩包名字
+         name: debug
          path: ${{ github.workspace }}/app/build/outputs/apk/release
 
-      - name: Create service_account.json
-        id: createServiceAccount
-        run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
-
-      - name: Deploy to Play Store (BETA)
-        id: deploy
-        uses: r0adkll/upload-google-play@v1
-        with:
-          serviceAccountJson: service_account.json
-          packageName: com.besttextonphoto.addbesttext
-          releaseFiles: app/build/outputs/apk/release/app-release.apk
-          track: internal
+     
